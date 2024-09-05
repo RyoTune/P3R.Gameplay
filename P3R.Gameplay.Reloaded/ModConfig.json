@@ -1,0 +1,21 @@
+{
+  "ModId": "P3R.Gameplay.Reloaded",
+  "ModName": "P3R Gameplay Editor",
+  "ModAuthor": "zutomayofan50",
+  "ModVersion": "1.0.0",
+  "ModDescription": "Customize gameplay settings.",
+  "ModDll": "P3R.Gameplay.Reloaded.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/P3R.Gameplay.Reloaded.dll",
+  "ModR2RManagedDll64": "x64/P3R.Gameplay.Reloaded.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "P3R.Gameplay.Reloaded.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [ "reloaded.sharedlib.hooks", "Reloaded.Memory.SigScan.ReloadedII" ],
+  "OptionalDependencies": [],
+  "SupportedAppId": ["p3r.exe"],
+  "ProjectUrl": ""
+}
