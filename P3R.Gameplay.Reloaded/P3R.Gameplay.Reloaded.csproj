@@ -47,6 +47,7 @@
     <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
     <PackageReference Include="RyoTune.Reloaded" Version="1.0.0" />
     <PackageReference Include="Reloaded.Memory.SigScan.ReloadedII.Interfaces" Version="1.2.0" />
+    <PackageReference Include="Unreal.ObjectsEmitter.Interfaces" Version="1.2.1" />
   </ItemGroup>
 
 </Project>

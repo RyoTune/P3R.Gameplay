@@ -1,7 +1,9 @@
 ﻿using P3R.Gameplay.Reloaded.Configuration;
+using P3R.Gameplay.Reloaded.Services.Difficulty;
 using P3R.Gameplay.Reloaded.Template;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
+using Unreal.ObjectsEmitter.Interfaces;
 
 namespace P3R.Gameplay.Reloaded;
 
@@ -14,6 +16,7 @@ public class Mod : ModBase
 
     private Config config;
     private readonly IModConfig modConfig;
+    private readonly DifficultyService difficulty;
 
     public Mod(ModContext context)
     {
@@ -25,15 +28,21 @@ public class Mod : ModBase
         this.modConfig = context.ModConfig;
 
         Project.Init(this.modConfig, this.modLoader, this.log, true);
+        Log.LogLevel = this.config.LogLevel;
+
+        this.modLoader.GetController<IDataTables>().TryGetTarget(out var dt);
+
+        this.difficulty = new DifficultyService(dt!, this.config);
     }
 
     #region Standard Overrides
     public override void ConfigurationUpdated(Config configuration)
     {
-        // Apply settings from configuration.
-        // ... your code here.
-        config = configuration;
-        log.WriteLine($"[{modConfig.ModId}] Config Updated: Applying");
+        Log.Information("Config Updated: Applying");
+        this.config = configuration;
+
+        Log.LogLevel = this.config.LogLevel;
+        this.difficulty.ApplyConfig(this.config);
     }
     #endregion
 

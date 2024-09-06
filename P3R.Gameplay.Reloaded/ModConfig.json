@@ -14,7 +14,7 @@
   "ReleaseMetadataFileName": "P3R.Gameplay.Reloaded.ReleaseMetadata.json",
   "PluginData": {},
   "IsUniversalMod": false,
-  "ModDependencies": [ "reloaded.sharedlib.hooks", "Reloaded.Memory.SigScan.ReloadedII" ],
+  "ModDependencies": [ "reloaded.sharedlib.hooks", "Reloaded.Memory.SigScan.ReloadedII", "Unreal.ObjectsEmitter.Reloaded" ],
   "OptionalDependencies": [],
   "SupportedAppId": ["p3r.exe"],
   "ProjectUrl": ""
