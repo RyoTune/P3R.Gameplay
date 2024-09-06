@@ -37,7 +37,7 @@ env:
   
   IS_RELEASE: ${{ startsWith(github.ref, 'refs/tags/') }}
   RELEASE_TAG: ${{ github.ref_name }}
-  PROJECT_DIR: ./SharedScans.Reloaded
+  PROJECT_NAME: P3R.Gameplay.Reloaded
 
 jobs:
   build:
@@ -60,7 +60,7 @@ jobs:
     - name: Setup .NET Core SDK (7.0)
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 8.0.x
         
     - name: Setup Node.js
       uses: actions/setup-node@v2
@@ -74,17 +74,17 @@ jobs:
       run: |
         [System.IO.Directory]::CreateDirectory("$env:PUBLISH_PATH")
         if ($env:IS_RELEASE -eq 'true') {
-            auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --starting-version "$env:RELEASE_TAG" --output "$env:PUBLISH_CHANGELOG_PATH" --template .github/changelog.hbs
+            auto-changelog --sort-commits date --commit-limit false --starting-version "$env:RELEASE_TAG" --output "$env:PUBLISH_CHANGELOG_PATH" --template .github/changelog.hbs
         }
         else {
-            auto-changelog --sort-commits date --hide-credit --template keepachangelog --commit-limit false --unreleased --output "$env:PUBLISH_CHANGELOG_PATH" --template .github/changelog.hbs
+            auto-changelog --sort-commits date --commit-limit false --unreleased --output "$env:PUBLISH_CHANGELOG_PATH" --template .github/changelog.hbs
         }
         
     - name: Build
-      run: ${{ env.PROJECT_DIR }}/Publish.ps1
+      run: ${{ env.PROJECT_NAME }}/Publish.ps1
 
     - name: Copy Build
-      run: Copy-Item -Force -Path "${{ env.PROJECT_DIR }}/Publish/*" -Destination "./Publish" -Recurse
+      run: Copy-Item -Force -Path "${{ env.PROJECT_NAME }}/Publish/*" -Destination "./Publish" -Recurse
 
     - name: Upload GitHub Release Artifact
       uses: actions/upload-artifact@v2.2.4
@@ -115,7 +115,7 @@ jobs:
 
   github_release:
     needs: build
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
