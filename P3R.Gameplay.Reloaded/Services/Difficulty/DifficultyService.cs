@@ -53,6 +53,8 @@ public unsafe class DifficultyService
                 ExpRate = (float)this.config.Difficulty.ExpRate / 100 * ogParams.ExpRate,
                 DamageRateToEnemyWeak = (float)this.config.Difficulty.DamageRateToEnemyWeak / 100 * ogParams.DamageRateToEnemyWeak,
                 DamageRateToPlayerWeak = (float)this.config.Difficulty.DamageRateToPlayerWeak / 100 * ogParams.DamageRateToPlayerWeak,
+                DamageRateToEnemyCritical = (float)this.config.Difficulty.DamageRateToEnemyCritical / 100 * ogParams.DamageRateToEnemyCritical,
+                DamageRateToPlayerCritical = (float)this.config.Difficulty.DamageRateToPlayerCritical / 100 * ogParams.DamageRateToPlayerCritical,
                 MoneyRateToMaterials = (float)this.config.Difficulty.MoneyRateToMaterials / 100 * ogParams.MoneyRateToMaterials,
                 BadStatusHitRateFromEnemy = (float)this.config.Difficulty.BadStatusHitRateFromEnemy / 100 * ogParams.BadStatusHitRateFromEnemy,
                 BadStatusHitRateFromPlayer = (float)this.config.Difficulty.BadStatusHitRateFromPlayer / 100 * ogParams.BadStatusHitRateFromPlayer
@@ -68,6 +70,8 @@ public unsafe class DifficultyService
         sb.AppendLine($"{nameof(FBtlCalcParam.ExpRate)}: {this.config.Difficulty.ExpRate}%");
         sb.AppendLine($"{nameof(FBtlCalcParam.DamageRateToEnemyWeak)}: {this.config.Difficulty.DamageRateToEnemyWeak}%");
         sb.AppendLine($"{nameof(FBtlCalcParam.DamageRateToPlayerWeak)}: {this.config.Difficulty.DamageRateToPlayerWeak}%");
+        sb.AppendLine($"{nameof(FBtlCalcParam.DamageRateToEnemyCritical)}: {this.config.Difficulty.DamageRateToEnemyCritical}%");
+        sb.AppendLine($"{nameof(FBtlCalcParam.DamageRateToPlayerCritical)}: {this.config.Difficulty.DamageRateToPlayerCritical}%");
         sb.AppendLine($"{nameof(FBtlCalcParam.MoneyRateToMaterials)}: {this.config.Difficulty.MoneyRateToMaterials}%");
         sb.AppendLine($"{nameof(FBtlCalcParam.BadStatusHitRateFromEnemy)}: {this.config.Difficulty.BadStatusHitRateFromEnemy}%");
         sb.AppendLine($"{nameof(FBtlCalcParam.BadStatusHitRateFromPlayer)}: {this.config.Difficulty.BadStatusHitRateFromPlayer}%");
@@ -90,6 +94,8 @@ public unsafe class DifficultyService
         sb.AppendLine($"{nameof(newParams.ExpRate)} || {ogParams.ExpRate} || {newParams.ExpRate}");
         sb.AppendLine($"{nameof(newParams.DamageRateToEnemyWeak)} || {ogParams.DamageRateToEnemyWeak} || {newParams.DamageRateToEnemyWeak}");
         sb.AppendLine($"{nameof(newParams.DamageRateToPlayerWeak)} || {ogParams.DamageRateToPlayerWeak} || {newParams.DamageRateToPlayerWeak}");
+        sb.AppendLine($"{nameof(newParams.DamageRateToEnemyCritical)} || {ogParams.DamageRateToEnemyCritical} || {newParams.DamageRateToEnemyCritical}");
+        sb.AppendLine($"{nameof(newParams.DamageRateToPlayerCritical)} || {ogParams.DamageRateToPlayerCritical} || {newParams.DamageRateToPlayerCritical}");
         sb.AppendLine($"{nameof(newParams.MoneyRateToMaterials)} || {ogParams.MoneyRateToMaterials} || {newParams.MoneyRateToMaterials}");
         sb.AppendLine($"{nameof(newParams.BadStatusHitRateFromEnemy)} || {ogParams.BadStatusHitRateFromEnemy} || {newParams.BadStatusHitRateFromEnemy}");
         sb.AppendLine($"{nameof(newParams.BadStatusHitRateFromPlayer)} || {ogParams.BadStatusHitRateFromPlayer} || {newParams.BadStatusHitRateFromPlayer}");
